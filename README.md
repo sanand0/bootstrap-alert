@@ -26,14 +26,13 @@ bstoast({
 });
 ```
 
-## Examples
+## Live Demo
 
-Check out the [live examples](examples/test.html) to see bstoast in action.
+Try out bstoast with our [live demo](https://prudhvi1709.github.io/bstoast/) which includes interactive examples and code snippets.
 
 ## API Reference
 
 ### `bstoast(options)`
-
 Creates and displays a Bootstrap toast notification.
 
 #### Parameters
