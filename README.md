@@ -45,6 +45,7 @@ Creates and displays a Bootstrap toast notification.
 | `append` | boolean | true | If true, adds new toast to existing ones. If false, clears previous toasts |
 | `timeout` | number \| false | 5000 | Auto-hide delay in milliseconds. Set to false to disable auto-hide |
 | `icon` | string | undefined | Bootstrap Icons class name (without 'bi-' prefix) |
+| `position` | string | 'top-0 end-0' | Bootstrap position classes for toast container |
 
 #### Returns
 - `void`
@@ -59,14 +60,15 @@ Creates and displays a Bootstrap toast notification.
 // Simple string message
 bstoast("Operation successful!");
 
-// Full configuration with icon
+// Full configuration with icon and position
 bstoast({
   title: "Error",
   body: "Something went wrong",
   color: "danger",
   icon: "exclamation-triangle",
   append: true,
-  timeout: 10000
+  timeout: 10000,
+  position: "bottom-0 start-0" // Show toast at bottom start
 });
 
 // Disable auto-hide

@@ -32,6 +32,7 @@ bstoast("Hello World!");</code></pre>
                 <button id="customToast" class="btn btn-success">Custom Toast</button>
                 <button id="replaceToast" class="btn btn-danger">Replace Toast</button>
                 <button id="iconToast" class="btn btn-info">Icon Toast</button>
+                <button id="positionToast" class="btn btn-warning">Bottom Start Toast</button>
             </div>
 
             <h3>Example Code</h3>
@@ -60,6 +61,14 @@ bstoast({
     body: "This toast has an icon",
     color: "info",
     icon: "info-circle"
+});
+
+// Toast at bottom start position
+bstoast({
+    title: "Position",
+    body: "This toast appears at the bottom start",
+    color: "warning",
+    position: "bottom-0 start-0"
 });</code></pre>
         </div>
 
@@ -138,6 +147,16 @@ bstoast({
                 icon: "info-circle"
             });
             highlightCode(18, 25);
+        });
+
+        document.getElementById('positionToast').addEventListener('click', () => {
+            bstoast({
+                title: "Position",
+                body: "This toast appears at the bottom start",
+                color: "warning",
+                position: "bottom-0 start-0"
+            });
+            highlightCode(27, 34);
         });
     </script>
 </body>
