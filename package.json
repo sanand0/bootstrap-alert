@@ -1,0 +1,18 @@
+{
+  "name": "bstoast",
+  "version": "1.0.0",
+  "description": "Minimal Bootstrap 5 toast notifications",
+  "main": "index.js",
+  "type": "module",
+  "keywords": ["bootstrap", "toast", "notification", "alert", "minimal"],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prudhvi1709/bstoast.git"
+  },
+  "files": ["index.js"],
+  "peerDependencies": {
+    "bootstrap": "^5.0.0"
+  }
+}
