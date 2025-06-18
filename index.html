@@ -1,42 +1,52 @@
-<!DOCTYPE html>
+<!doctype html>
 <html data-bs-theme="light">
-<head>
-    <title>bstoast - Bootstrap 5 Toast Notifications</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
-    <style>
-        #themeToggle { position: fixed; top: 1rem; right: 1rem; }
-    </style>
-</head>
-<body>
-    <button id="themeToggle" class="btn btn-outline-secondary">
-        <i class="bi bi-moon-fill"></i>
-    </button>
 
-    <div class="container mt-5">
-        <h1>bstoast</h1>
-        <p class="lead">A lightweight Bootstrap 5 toast notification library that provides a modern alternative to `alert()`.</p>
-        
-        <h2 class="mt-4">Quick Start</h2>
-        <pre class="p-3 rounded"><code>import { bstoast } from "https://cdn.jsdelivr.net/npm/bstoast";
+<head>
+  <title>bstoast - Bootstrap 5 Toast Notifications</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet" />
+  <style>
+    #themeToggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+    }
+
+  </style>
+</head>
+
+<body>
+  <button id="themeToggle" class="btn btn-outline-secondary">
+    <i class="bi bi-moon-fill"></i>
+  </button>
+
+  <div class="container mt-5">
+    <h1>bstoast</h1>
+    <p class="lead">
+      A lightweight Bootstrap 5 toast notification library that provides a modern alternative to
+      `alert()`.
+    </p>
+
+    <h2 class="mt-4">Quick Start</h2>
+    <pre class="p-3 rounded"><code>import { bstoast } from "https://cdn.jsdelivr.net/npm/bstoast";
 
 // Simple usage
 bstoast("Hello World!");</code></pre>
 
-        <div class="mt-5 pt-4 border-top">
-            <h2>Live Examples</h2>
-            <p>Try out bstoast with these interactive examples:</p>
-            
-            <div class="mb-4">
-                <button id="simpleToast" class="btn btn-primary">Simple Toast</button>
-                <button id="customToast" class="btn btn-success">Custom Toast</button>
-                <button id="replaceToast" class="btn btn-danger">Replace Toast</button>
-                <button id="iconToast" class="btn btn-info">Icon Toast</button>
-                <button id="positionToast" class="btn btn-warning">Bottom Start Toast</button>
-            </div>
+    <div class="mt-5 pt-4 border-top">
+      <h2>Live Examples</h2>
+      <p>Try out bstoast with these interactive examples:</p>
 
-            <h3>Example Code</h3>
-            <pre class="p-3 rounded"><code id="codeExample">// Simple toast
+      <div class="mb-4">
+        <button id="simpleToast" class="btn btn-primary">Simple Toast</button>
+        <button id="customToast" class="btn btn-success">Custom Toast</button>
+        <button id="replaceToast" class="btn btn-danger">Replace Toast</button>
+        <button id="iconToast" class="btn btn-info">Icon Toast</button>
+        <button id="positionToast" class="btn btn-warning">Bottom Start Toast</button>
+      </div>
+
+      <h3>Example Code</h3>
+      <pre class="p-3 rounded"><code id="codeExample">// Simple toast
 bstoast("Simple message");
 
 // Custom toast with title and color
@@ -70,94 +80,114 @@ bstoast({
     color: "warning",
     position: "bottom-0 start-0"
 });</code></pre>
-        </div>
-
-        <div class="mt-5 pt-4 border-top">
-            <h2>Documentation</h2>
-            <p>For full documentation, visit our <a href="https://github.com/prudhvi1709/bstoast">GitHub repository</a>.</p>
-        </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="module">
-        import { bstoast } from './script.js';
-        
-        // Theme toggle functionality
-        const themeToggle = document.getElementById('themeToggle');
-        const html = document.documentElement;
-        const icon = themeToggle.querySelector('i');
-        const codeExample = document.getElementById('codeExample');
+    <div class="mt-5 pt-4 border-top">
+      <h2>Documentation</h2>
+      <p>
+        For full documentation, visit our
+        <a href="https://github.com/prudhvi1709/bstoast">GitHub repository</a>.
+      </p>
+    </div>
+  </div>
 
-        function highlightCode(startLine, endLine) {
-            const lines = codeExample.innerHTML.split('\n');
-            const highlightedLines = lines.map((line, index) => {
-                if (index >= startLine && index <= endLine) {
-                    return `<span class="bg-warning bg-opacity-25">${line}</span>`;
-                }
-                return line;
-            });
-            codeExample.innerHTML = highlightedLines.join('\n');
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module">
+    import {
+      bstoast
+    } from './bstoast.js';
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const icon = themeToggle.querySelector('i');
+    const codeExample = document.getElementById('codeExample');
+
+    function highlightCode(startLine, endLine) {
+      const lines = codeExample.innerHTML.split('\n');
+      const highlightedLines = lines.map((line, index) => {
+        if (index >= startLine && index <= endLine) {
+          return `<span class="bg-warning bg-opacity-25">${line}</span>`;
         }
+        return line;
+      });
+      codeExample.innerHTML = highlightedLines.join('\n');
+    }
 
-        function updateThemeIcon() {
-            const isDark = html.getAttribute('data-bs-theme') === 'dark';
-            icon.className = isDark ? 'bi bi-sun-fill' : 'bi bi-moon-fill';
-        }
+    function removeHighlighting() {
+      const lines = codeExample.innerHTML.split('\n');
+      const unhighlightedLines = lines.map((line) => {
+        return line.replace(/<span class="bg-warning bg-opacity-25">(.*?)<\/span>/g, '$1');
+      });
+      codeExample.innerHTML = unhighlightedLines.join('\n');
+    }
 
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = html.getAttribute('data-bs-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            html.setAttribute('data-bs-theme', newTheme);
-            updateThemeIcon();
-        });
+    function updateThemeIcon() {
+      const isDark = html.getAttribute('data-bs-theme') === 'dark';
+      icon.className = isDark ? 'bi bi-sun-fill' : 'bi bi-moon-fill';
+    }
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = html.getAttribute('data-bs-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-bs-theme', newTheme);
+      updateThemeIcon();
+    });
+    // Initialize theme icon
+    updateThemeIcon();
+    document.getElementById('simpleToast').addEventListener('click', () => {
+      const timeout = 3000; // Default timeout
+      bstoast('Simple message');
+      highlightCode(0, 1);
+      setTimeout(removeHighlighting, timeout);
+    });
+    document.getElementById('customToast').addEventListener('click', () => {
+      const timeout = 3000;
+      bstoast({
+        title: 'Success',
+        body: 'Custom toast message',
+        color: 'success',
+        timeout: timeout,
+      });
+      highlightCode(3, 9);
+      setTimeout(removeHighlighting, timeout);
+    });
+    document.getElementById('replaceToast').addEventListener('click', () => {
+      const timeout = 3000;
+      bstoast({
+        title: 'Warning',
+        body: 'This replaces previous toast',
+        color: 'warning',
+        append: false,
+        timeout: timeout,
+      });
+      highlightCode(11, 17);
+      setTimeout(removeHighlighting, timeout);
+    });
+    document.getElementById('iconToast').addEventListener('click', () => {
+      const timeout = 3000;
+      bstoast({
+        title: 'Info',
+        body: 'This toast has an icon',
+        color: 'info',
+        icon: 'info-circle',
+        timeout: timeout,
+      });
+      highlightCode(18, 25);
+      setTimeout(removeHighlighting, timeout);
+    });
+    document.getElementById('positionToast').addEventListener('click', () => {
+      const timeout = 3000;
+      bstoast({
+        title: 'Position',
+        body: 'This toast appears at the bottom start',
+        color: 'warning',
+        position: 'bottom-0 start-0',
+        timeout: timeout,
+      });
+      highlightCode(27, 34);
+      setTimeout(removeHighlighting, timeout);
+    });
 
-        // Initialize theme icon
-        updateThemeIcon();
-        
-        document.getElementById('simpleToast').addEventListener('click', () => {
-            bstoast("Simple message");
-            highlightCode(0, 1);
-        });
-
-        document.getElementById('customToast').addEventListener('click', () => {
-            bstoast({
-                title: "Success",
-                body: "Custom toast message",
-                color: "success",
-                timeout: 3000
-            });
-            highlightCode(3, 9);
-        });
-
-        document.getElementById('replaceToast').addEventListener('click', () => {
-            bstoast({
-                title: "Warning",
-                body: "This replaces previous toast",
-                color: "warning",
-                append: false
-            });
-            highlightCode(11, 17);
-        });
-
-        document.getElementById('iconToast').addEventListener('click', () => {
-            bstoast({
-                title: "Info",
-                body: "This toast has an icon",
-                color: "info",
-                icon: "info-circle"
-            });
-            highlightCode(18, 25);
-        });
-
-        document.getElementById('positionToast').addEventListener('click', () => {
-            bstoast({
-                title: "Position",
-                body: "This toast appears at the bottom start",
-                color: "warning",
-                position: "bottom-0 start-0"
-            });
-            highlightCode(27, 34);
-        });
-    </script>
+  </script>
 </body>
-</html> 
+
+</html>
