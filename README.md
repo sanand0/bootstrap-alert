@@ -11,17 +11,17 @@ npm install bstoast
 ## Quick Start
 
 ```js
-import { bstoast } from 'https://cdn.jsdelivr.net/npm/bstoast';
+import { bstoast } from "https://cdn.jsdelivr.net/npm/bstoast";
 
 // Simple usage
-bstoast('Hello World!');
+bstoast("Hello World!");
 
 // Advanced usage with icon
 bstoast({
-  title: 'Success',
-  body: 'Operation completed',
-  color: 'success',
-  icon: 'check-circle',
+  title: "Success",
+  body: "Operation <strong>completed</strong>",
+  color: "success",
+  icon: "check-circle",
   timeout: 3000,
 });
 ```
@@ -40,8 +40,8 @@ Creates and displays a Bootstrap toast notification.
 
 | Option     | Type            | Default       | Description                                                                |
 | ---------- | --------------- | ------------- | -------------------------------------------------------------------------- |
-| `title`    | string          | "Alert"       | Toast header text                                                          |
-| `body`     | string          | required      | Toast message content                                                      |
+| `title`    | string          | "Alert"       | Toast header text (HTML allowed)                                           |
+| `body`     | string          | required      | Toast message content (HTML allowed)                                       |
 | `color`    | string          | "primary"     | Bootstrap color variant (primary, success, danger, warning, info)          |
 | `append`   | boolean         | true          | If true, adds new toast to existing ones. If false, clears previous toasts |
 | `timeout`  | number \| false | 5000          | Auto-hide delay in milliseconds. Set to false to disable auto-hide         |
@@ -61,32 +61,32 @@ Creates and displays a Bootstrap toast notification.
 
 ```js
 // Simple string message
-bstoast('Operation successful!');
+bstoast("Operation successful!");
 
 // Full configuration with icon and position
 bstoast({
-  title: 'Error',
-  body: 'Something went wrong',
-  color: 'danger',
-  icon: 'exclamation-triangle',
+  title: "Error",
+  body: "Something went wrong",
+  color: "danger",
+  icon: "exclamation-triangle",
   append: true,
   timeout: 10000,
-  position: 'bottom-0 start-0', // Show toast at bottom start
+  position: "bottom-0 start-0", // Show toast at bottom start
 });
 
 // Disable auto-hide
 bstoast({
-  title: 'Important',
-  body: 'Please read this carefully',
+  title: '<h2 class="h5">Important</h2>',
+  body: "Please read this carefully",
   timeout: false,
 });
 
 // Using Bootstrap Icons
 bstoast({
-  title: 'Info',
-  body: 'New update available',
-  icon: 'info-circle',
-  color: 'info',
+  title: "Info",
+  body: "New update available",
+  icon: "info-circle",
+  color: "info",
 });
 ```
 
@@ -133,11 +133,13 @@ The project uses [Vitest](https://vitest.dev/) for testing with [Happy DOM](http
 - Edge cases
 
 To run tests in watch mode:
+
 ```bash
 npm test
 ```
 
 To generate a coverage report:
+
 ```bash
 npm run test:coverage
 ```
