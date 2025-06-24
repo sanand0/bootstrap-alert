@@ -1,99 +1,78 @@
-# bstoast
+# bootstrap-alert
 
-A lightweight Bootstrap 5 toast notification library that provides a modern alternative to `alert()`.
+A lightweight [Bootstrap 5](https://getbootstrap.com/docs/5.3/) toast notification library that provides a modern alternative to `alert()`.
 
 ## Installation
 
+To use locally, install via `npm`:
+
 ```bash
-npm install bstoast
+npm install bootstrap-alert@1
+```
+
+... and add this to your script:
+
+```js
+import { bootstrapAlert } from "./node_modules/bootstrap-alert/dist/bootstrap-alert.js;
+```
+
+To use via CDN, add this to your script:
+
+```js
+import { bootstrapAlert } from "https://cdn.jsdelivr.net/npm/bootstrap-alert@1";
 ```
 
 ## Quick Start
 
 ```js
-import { bstoast } from "https://cdn.jsdelivr.net/npm/bstoast";
+import { bootstrapAlert } from "https://cdn.jsdelivr.net/npm/bootstrap-alert@1";
 
-// Simple usage
-bstoast("Hello World!");
+// Simple toast
+bootstrapAlert("Simple message");
 
-// Advanced usage with icon
-bstoast({
-  title: "Success",
-  body: "Operation <strong>completed</strong>",
-  color: "success",
-  icon: "check-circle",
-  timeout: 3000,
-});
+// Custom toast: with title and color
+bootstrapAlert({ title: "Success", body: "Custom toast message", color: "success" });
+
+// Replace toast: clears previous ones
+bootstrapAlert({ body: "This replaces previous toast", replace: true });
+
+// Bottom left position
+bootstrapAlert({ title: "Position", body: "Bottom start", position: "bottom-0 start-0" });
+
+// Top right position
+bootstrapAlert({ title: "Position", body: "Bottom start", position: "top-0 end-0" });
+
+// HTML toast: with icons / formatting
+bootstrapAlert({ title: '<i class="bi bi-cake2"></i> Congts!', body: "Well <u>done</u>!" });
+
+// Don't hide: Keep toast on screen until dismissed
+bootstrapAlert({ body: "Stays on screen", autohide: false });
+
+// Quick hide: Change the delay before timeout
+bootstrapAlert({ body: "Vanishes quickly", delay: 500 });
 ```
 
-## Live Demo
-
-Try out bstoast with our [live demo](https://prudhvi1709.github.io/bstoast/) which includes interactive examples and code snippets.
+[](bootstrap-alert.html ":include")
 
 ## API Reference
 
-### `bstoast(options)`
+`bootstrapAlert(options)` creates and displays a Bootstrap toast notification.
 
-Creates and displays a Bootstrap toast notification.
+| Option      | Type    | Default       | Description                                                       |
+| ----------- | ------- | ------------- | ----------------------------------------------------------------- |
+| `body`      | string  | required      | Toast message text/HTML                                           |
+| `title`     | string  |               | Toast header text/HTML                                            |
+| `color`     | string  |               | Bootstrap color variant (primary, success, danger, warning, info) |
+| `replace`   | boolean | false         | If true, replaces previous toasts; else, appends toast            |
+| `position`  | string  | 'top-0 end-0' | Toast position `{top/start/bottom/end}-{0/50/100}`. Persists      |
+| `delay`     | number  | 5000          | Delay in milliseconds before hiding the toast                     |
+| `autohide`  | boolean | true          | Automatically hide the toast after the delay                      |
+| `animation` | boolean | true          | Apply a CSS fade transition to the toast                          |
 
-#### Parameters
-
-| Option     | Type            | Default       | Description                                                                |
-| ---------- | --------------- | ------------- | -------------------------------------------------------------------------- |
-| `title`    | string          | "Alert"       | Toast header text (HTML allowed)                                           |
-| `body`     | string          | required      | Toast message content (HTML allowed)                                       |
-| `color`    | string          | "primary"     | Bootstrap color variant (primary, success, danger, warning, info)          |
-| `append`   | boolean         | true          | If true, adds new toast to existing ones. If false, clears previous toasts |
-| `timeout`  | number \| false | 5000          | Auto-hide delay in milliseconds. Set to false to disable auto-hide         |
-| `icon`     | string          | undefined     | Bootstrap Icons class name (without 'bi-' prefix)                          |
-| `position` | string          | 'top-0 end-0' | Bootstrap position classes for toast container                             |
-
-#### Returns
-
-- `void`
-
-#### Throws
+Throws:
 
 - `Error` if Bootstrap 5 is not loaded
 - `Error` if body parameter is not provided
-
-#### Example Usage
-
-```js
-// Simple string message
-bstoast("Operation successful!");
-
-// Full configuration with icon and position
-bstoast({
-  title: "Error",
-  body: "Something went wrong",
-  color: "danger",
-  icon: "exclamation-triangle",
-  append: true,
-  timeout: 10000,
-  position: "bottom-0 start-0", // Show toast at bottom start
-});
-
-// Disable auto-hide
-bstoast({
-  title: '<h2 class="h5">Important</h2>',
-  body: "Please read this carefully",
-  timeout: false,
-});
-
-// Using Bootstrap Icons
-bstoast({
-  title: "Info",
-  body: "New update available",
-  icon: "info-circle",
-  color: "info",
-});
-```
-
-## Requirements
-
-- Bootstrap 5 JavaScript
-- Bootstrap Icons (optional, for icon support)
 
 ## Development
 
@@ -101,75 +80,22 @@ bstoast({
 
 ```bash
 # Clone the repository
-git clone https://github.com/prudhvi1709/bstoast.git
-cd bstoast
+git clone https://github.com/sanand0/bootstrap-alert.git
+cd bootstrap-alert
 
 # Install dependencies
 npm install
-```
 
-### Available Scripts
-
-```bash
 # Format code
-npm run format
+npm run lint
 
 # Run tests
 npm test
 
-# Run tests with coverage
-npm run test:coverage
+# Publish
+npm publish
 ```
-
-### Testing
-
-The project uses [Vitest](https://vitest.dev/) for testing with [Happy DOM](https://github.com/capricorn86/happy-dom) for DOM environment simulation. The test suite covers:
-
-- Basic toast creation and configuration
-- Different positions and colors
-- Custom icons and timeouts
-- HTML escaping
-- Error handling
-- Edge cases
-
-To run tests in watch mode:
-
-```bash
-npm test
-```
-
-To generate a coverage report:
-
-```bash
-npm run test:coverage
-```
-
-## Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Security
-
-If you discover any security-related issues, please raise an issue in the issue tracker.
-
-## Credits
-
-- [Bootstrap](https://getbootstrap.com/) - For the toast component
-- [Bootstrap Icons](https://icons.getbootstrap.com/) - For icon support
+[MIT](LICENSE)

@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>bootstrap-alert</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+  <div class="container my-3">
+    <div style="max-width: 25rem">
+      <button id="simpleToast" class="m-1 btn btn-outline-dark">Simple Toast</button>
+      <button id="colorToast" class="m-1 btn btn-primary">Color Toast</button>
+      <button id="customToast" class="m-1 btn btn-success">Custom Toast</button>
+      <button id="replaceToast" class="m-1 btn btn-danger">Replace Toast</button>
+      <button id="bottomLeftToast" class="m-1 btn btn-warning">Bottom Left Toast</button>
+      <button id="topRightToast" class="m-1 btn btn-warning">Top Right Toast</button>
+      <button id="htmlToast" class="m-1 btn btn-secondary">HTML Toast</button>
+      <button id="dontHide" class="m-1 btn btn-outline-primary">Don't Hide</button>
+      <button id="quickHide" class="m-1 btn btn-outline-primary">Quick Hide</button>
+    </div>
+
+    <div class="visually-hidden">
+      <button id="noTimeoutToast" class="btn btn-secondary">No Timeout Toast</button>
+      <button id="zeroTimeoutToast" class="btn btn-secondary">Zero Timeout Toast</button>
+      <button id="specialCharsToast" class="btn btn-secondary">Special Chars Toast</button>
+      <button id="errorToast" class="btn btn-secondary">Error Toast</button>
+      <button id="emptyErrorToast" class="btn btn-secondary">Empty Error Toast</button>
+    </div>
+  </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module">
+    import {
+      bootstrapAlert
+    } from './bootstrap-alert.js';
+    document.getElementById('simpleToast').addEventListener('click', () => {
+      bootstrapAlert('Simple message');
+    });
+    document.getElementById('colorToast').addEventListener('click', () => {
+      bootstrapAlert({
+        body: 'Colored message',
+        color: 'primary'
+      });
+    });
+    document.getElementById('customToast').addEventListener('click', () => {
+      bootstrapAlert({
+        title: "Success",
+        body: "Custom toast message",
+        color: "success"
+      });
+    });
+    document.getElementById('replaceToast').addEventListener('click', () => {
+      bootstrapAlert({
+        body: "This replaces previous toast",
+        replace: true
+      });
+    });
+    document.getElementById('bottomLeftToast').addEventListener('click', () => {
+      bootstrapAlert({
+        title: "Position",
+        body: "Bottom left",
+        position: "bottom-0 start-0"
+      });
+    });
+    document.getElementById('topRightToast').addEventListener('click', () => {
+      bootstrapAlert({
+        title: "Position",
+        body: "Top right",
+        position: "top-0 end-0"
+      });
+    });
+    document.getElementById('htmlToast').addEventListener('click', () => {
+      bootstrapAlert({
+        title: '<i class="bi bi-cake2 me-2"></i> Congrats!',
+        body: "Well <u>done</u>!"
+      });
+    });
+    document.getElementById('dontHide').addEventListener('click', () => {
+      bootstrapAlert({
+        body: "Stays on screen",
+        autohide: false
+      });
+    });
+    document.getElementById('quickHide').addEventListener('click', () => {
+      bootstrapAlert({
+        body: "Vanishes quickly",
+        delay: 500
+      });
+    });
+    document.getElementById('specialCharsToast').addEventListener('click', () => {
+      bootstrapAlert({
+        body: "Test & < > \" ' message"
+      });
+    });
+    document.getElementById('errorToast').addEventListener('click', () => {
+      try {
+        bootstrapAlert({});
+      } catch (e) {
+        console.error(e.message);
+      }
+    });
+    document.getElementById('emptyErrorToast').addEventListener('click', () => {
+      try {
+        bootstrapAlert({
+          body: ''
+        });
+      } catch (e) {
+        console.error(e.message);
+      }
+    });
+
+  </script>
+</body>
+
+</html>
