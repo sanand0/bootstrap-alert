@@ -1,5 +1,10 @@
 # bootstrap-alert
 
+[![npm version](https://img.shields.io/npm/v/bootstrap-alert.svg)](https://www.npmjs.com/package/bootstrap-alert)
+[![Bootstrap](https://img.shields.io/badge/Framework-Bootstrap%205-7952b3)](https://getbootstrap.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![bundle size](https://img.shields.io/bundlephobia/minzip/bootstrap-alert)](https://bundlephobia.com/package/bootstrap-alert)
+
 A lightweight [Bootstrap 5](https://getbootstrap.com/docs/5.3/) toast notification library that provides a modern alternative to `alert()`.
 
 ## Installation
