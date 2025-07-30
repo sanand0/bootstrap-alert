@@ -12,13 +12,13 @@ A lightweight [Bootstrap 5](https://getbootstrap.com/docs/5.3/) toast notificati
 To use locally, install via `npm`:
 
 ```bash
-npm install bootstrap-alert@1
+npm install bootstrap-alert
 ```
 
 ... and add this to your script:
 
 ```js
-import { bootstrapAlert } from "./node_modules/bootstrap-alert/dist/bootstrap-alert.js;
+import { bootstrapAlert } from "./node_modules/bootstrap-alert/dist/bootstrap-alert.js";
 ```
 
 To use via CDN, add this to your script:
@@ -27,7 +27,7 @@ To use via CDN, add this to your script:
 import { bootstrapAlert } from "https://cdn.jsdelivr.net/npm/bootstrap-alert@1";
 ```
 
-## Quick Start
+## Usage
 
 ```js
 import { bootstrapAlert } from "https://cdn.jsdelivr.net/npm/bootstrap-alert@1";
@@ -59,7 +59,7 @@ bootstrapAlert({ body: "Vanishes quickly", delay: 500 });
 
 [](bootstrap-alert.html ":include")
 
-## API Reference
+## API
 
 `bootstrapAlert(options)` creates and displays a Bootstrap toast notification.
 
@@ -81,25 +81,21 @@ Throws:
 
 ## Development
 
-### Setup
-
 ```bash
-# Clone the repository
 git clone https://github.com/sanand0/bootstrap-alert.git
 cd bootstrap-alert
 
-# Install dependencies
 npm install
+npm run lint && npm run build && npm test
 
-# Format code
-npm run lint
-
-# Run tests
-npm test
-
-# Publish
 npm publish
+git commit . -m"$COMMIT_MSG"; git tag $VERSION; git push --follow-tags
 ```
+
+## Release notes
+
+- [1.1.0](https://npmjs.com/package/bootstrap-alert/v/1.1.0): 30 Jun 2025. Standardized package.json & README.md
+- [1.0.0](https://npmjs.com/package/bootstrap-alert/v/1.0.0): 25 Jun 2025. Initial release
 
 ## License
 
