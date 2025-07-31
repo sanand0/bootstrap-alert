@@ -94,7 +94,7 @@ git commit . -m"$COMMIT_MSG"; git tag $VERSION; git push --follow-tags
 
 ## Release notes
 
-- [1.1.0](https://npmjs.com/package/bootstrap-alert/v/1.1.0): 30 Jun 2025. Standardized package.json & README.md
+- [1.1.1](https://npmjs.com/package/bootstrap-alert/v/1.1.1): 31 Jun 2025. Standardized package.json & README.md
 - [1.0.0](https://npmjs.com/package/bootstrap-alert/v/1.0.0): 25 Jun 2025. Initial release
 
 ## License
