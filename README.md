@@ -9,22 +9,40 @@ A lightweight [Bootstrap 5](https://getbootstrap.com/docs/5.3/) toast notificati
 
 ## Installation
 
+Add this to your script:
+
+```js
+import { bootstrapAlert } from "bootstrap-alert";
+```
+
+To use via CDN, add this to your HTML file:
+
+```html
+<script type="importmap">
+  {
+    "imports": {
+      "bootstrap-alert": "https://cdn.jsdelivr.net/npm/bootstrap-alert@1"
+    }
+  }
+</script>
+```
+
 To use locally, install via `npm`:
 
 ```bash
 npm install bootstrap-alert
 ```
 
-... and add this to your script:
+... and add this to your HTML file:
 
-```js
-import { bootstrapAlert } from "./node_modules/bootstrap-alert/dist/bootstrap-alert.js";
-```
-
-To use via CDN, add this to your script:
-
-```js
-import { bootstrapAlert } from "https://cdn.jsdelivr.net/npm/bootstrap-alert@1";
+```html
+<script type="importmap">
+  {
+    "imports": {
+      "bootstrap-alert": "./node_modules/bootstrap-alert/dist/bootstrap-alert.js"
+    }
+  }
+</script>
 ```
 
 ## Usage
